@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">admingrid_customrule_listing.admingrid_customrule_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>admingrid_customrule_columns</spinner>
+		<deps>
+			<dep>admingrid_customrule_listing.admingrid_customrule_listing_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="admingrid_customrule_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="admingrid_customrule_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>customrule_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="admingrid_customrule_columns">
+	
+		<column name="id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+
+		<column name="email">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Email</label>
+			</settings>
+		</column>
+
+		<column name="greeting_status">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Greeting status</label>
+			</settings>
+		</column>
+
+		<column name="dob">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">DOB</label>
+			</settings>
+		</column>
+	</columns>
+</listing>
