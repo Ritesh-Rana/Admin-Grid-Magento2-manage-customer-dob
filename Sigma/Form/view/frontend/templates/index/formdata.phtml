@@ -1,0 +1,38 @@
+<table>
+    <thead>
+        <tr>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>birthdate</th>
+            <th>activities</th>
+            <th>file_upload</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($block->getCollection() as $record) {
+        ?>
+            <tr>
+                <td><?php echo $record->getData('first_name'); ?></td>
+                <td><?php echo $record->getData('last_name'); ?></td>
+                <td><?php echo $record->getData('birthdate'); ?></td>
+                <td><?php echo $record->getData('activities'); ?></td>
+                <td><?php echo $record->getData('file_upload'); ?></td>
+                <td></td>
+                <td><td>
+                <td><a href="<?php echo $block->getUrl('sigma_form/tabledata/edit', ['id' => $record->getId()]); ?>">Edit</a></td>
+                <td>
+                        <a href="
+                            <?php 
+                                $fileName = $record->getData('file_upload');
+                                $link = 'http://hansen.com/media/sigma_form_upload/'.$fileName;
+                                echo $link;                            
+                            ?>
+                        " download>Download</a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </tbody>
+</table>

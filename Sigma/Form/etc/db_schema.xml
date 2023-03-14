@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sigma_form">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID" />
+        <column xsi:type="varchar" name="first_name" nullable="false" length="255" comment="First Name" />
+        <column xsi:type="varchar" name="last_name" nullable="false" length="255" comment="Last Name" />
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email" />
+        <column xsi:type="varchar" name="file_upload" nullable="false" length="255" comment="File Upload" />
+        <column xsi:type="date" name="birthdate" nullable="false" comment="Birthdate" />
+        <column xsi:type="varchar" name="activities" nullable="true" length="255" comment="Activity's Multi-Select Checkbox" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+    </table>
+</schema>

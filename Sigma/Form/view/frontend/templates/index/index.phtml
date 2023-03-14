@@ -1,0 +1,86 @@
+<?php
+$id = $this->getRequest()->getParam('id');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$model = $objectManager->create('Sigma\Form\Model\Grid');
+$formdata=$model->load($id)->getData();
+$form = $this->getLayout()->getBlock('sigma_form');
+$form->setFormData($formdata);
+print_r($formdata);
+?>
+
+<!-- Add a description for the page here -->
+<div>
+    <p>This is a sample form for Sigma.</p>
+</div>
+
+<!-- Add the form here -->
+<form action="/sigma_form/index/saveform" id="my-form" method="post" enctype="multipart/form-data">
+    <div class="field">
+        <label class="label" for="firstname">First Name</label>
+        <div class="control">
+            <input type="text" name="first_name" id="firstname" class="input-text" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="lastname">Last Name</label>
+        <div class="control">
+            <input type="text" name="last_name" id="lastname" class="input-text" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="email">Email</label>
+        <div class="control">
+            <input type="email" name="email" id="email" class="input-text" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="file">File Upload</label>
+        <div class="control">
+            <input type="file" name="file" id="file" class="input-file" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="birthdate">Birthdate</label>
+        <div class="control">
+            <input type="date" name="birthdate" id="birthdate" class="input-text" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Activities</label>
+        <div class="control">
+            <label><input type="checkbox" name="activities[]" value="swimming"> Swimming</label><br>
+            <label><input type="checkbox" name="activities[]" value="running"> Running</label><br>
+            <label><input type="checkbox" name="activities[]" value="cycling"> Cycling</label><br>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="g-recaptcha-response">Google Recaptcha</label>
+        <div class="g-recaptcha" data-sitekey="6Lfuv90kAAAAAPNUlgL9ipDI0v05yVb8gKpXSss8"></div>
+    </div>
+    <div class="actions">
+        <button type="submit" class="action submit primary">Submit</button>
+    </div>
+</form>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6Lfuv90kAAAAAPNUlgL9ipDI0v05yVb8gKpXSss8', {
+            action: 'sigma_form'
+        }).then(function(token) {
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+</script>
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        $('#my-form').submit(function(event) {
+            var response = grecaptcha.getResponse();
+            if (response.length === 0) {
+                alert("Please complete the captcha");
+                event.preventDefault();
+                return false;
+            }
+        });
+    });
+</script>

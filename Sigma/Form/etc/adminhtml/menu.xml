@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/** Grid menu xml
+ * @category  Webkul
+ * @package   Sigma_Form
+ * @author    Webkul
+ * @copyright Copyright (c) 2010-2017 Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Sigma_Form::manager" title="Grid Manager" module="Sigma_Form" sortOrder="10" resource="Sigma_Form::manager" />
+        <add id="Sigma_Form::add_row" title="Grid Manager" module="Sigma_Form" sortOrder="20" parent="Sigma_Form::manager" action="grid/grid" resource="Sigma_Form::add_row"/>
+    </menu>
+</config>

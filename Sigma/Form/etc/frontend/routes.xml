@@ -1,0 +1,8 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="sigma_form" frontName="sigma_form">
+            <module name="Sigma_Form" />
+        </route>
+    </router>
+</config>
